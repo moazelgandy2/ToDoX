@@ -24,6 +24,21 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 - **HTML:** Structure and layout of web pages.
 - **CSS:** Styling and design elements for an engaging user experience.
 
+## Gallery
+
+### Login View
+![Login View](![image](https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/efc981ea-78c7-465e-965b-56328d82b801))
+
+### Dashboard View
+![Dashboard View](![image](![image](https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/7ee7dadf-8276-4d51-aff9-8e629b2480e9))
+
+### Task Creation
+![Task Creation](![image](https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/252d523a-7eb8-4a6d-9496-c33193ddf91f))
+
+### Profile Update
+![Profile Update](![image](https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/9218d2ef-e6d0-4002-a266-54cbac522537))
+
+
 ## Installation[GitHub](https://github.com/moazelgandy2/JS-To-Do-List) using the command:
 
 1. **Clone Repository:** Clone the project repository from [GitHub](https://github.com/moazelgandy2/JS-To-Do-List) using the command:
