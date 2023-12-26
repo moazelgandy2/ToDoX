@@ -25,7 +25,7 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 - **CSS:** Styling and design elements for an engaging user experience.
 
 ## Gallery
-
+https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/252d523a-7eb8-4a6d-9496-c33193ddf91f
 ### Login View
 ![Login View](![image](https://github.com/moazelgandy2/JS-To-Do-List/assets/56883008/efc981ea-78c7-465e-965b-56328d82b801))
 
