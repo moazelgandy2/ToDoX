@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <title>EntryX</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row min-vh-100 justify-content-center align-items-center">
+        <div class="col-12 col-md-6 col-lg-4 mx-auto">
+          <div class="card text-center py-2 bg-black">
+            <div class="card-head">
+              <h2>Welcome</h2>
+              <p class="text-muted">Please fill all the fields</p>
+            </div>
+            <form onsubmit="return false;">
+              <div class="card-body text-start position-relative">
+                <label for="email" class="mb-2">Email</label> <br />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="form-control mb-3"
+                  placeholder="Enter your email"
+                  required
+                />
+
+                <div class="password">
+                  <label for="password" class="mb-2">Password</label> <br />
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    class="form-control mb-3"
+                    placeholder="Enter your password"
+                    required
+                  />
+                  <label for="re-password" class="mb-2">Repeat password</label>
+                  <br />
+
+                  <input
+                    id="re-password"
+                    name="re-password"
+                    type="password"
+                    class="form-control mb-3"
+                    placeholder="Repeat your password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="nes-btn is-primary mx-auto mb-2 w-50"
+              >
+                Register
+              </button>
+              <p>Already have account? <a href="login.html">Login now!</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/sweetAlert.js"></script>
+
+    <script type="module" src="./js/register.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/103db47f5d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

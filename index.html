@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+    <title>EntryX</title>
+  </head>
+  <body>
+    <nav class="nes-container is-dark with-title is-rounded mb-4">
+      <h2 class="title welcom">Welcome</h2>
+      <ul class="list-unstyled d-flex justify-content-between">
+        <li class="profileBtn">Profile</li>
+        <li class="homeBtn d-none">Home</li>
+        <li class="newTask">Add task</li>
+        <li class="logoutBtn">Logout</li>
+      </ul>
+    </nav>
+
+    <div class="container profile nes-container with-title d-none">
+      <h2 class="title">Profile</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-6">
+          <img
+            src="./images/avatar.png"
+            alt="prifle picture"
+            class="avatar rounded-circle shadow p-2"
+          />
+        </div>
+        <div
+          class="col-12 col-sm-12 col-md-6 flex-column justify-content-between g-"
+        >
+          <div class="group">
+            <label for="pEmail">Email : </label>
+            <input
+              type="text"
+              id="pEmail"
+              name="pEmail"
+              class="nes-input"
+              value="Name"
+            />
+          </div>
+          <div class="group">
+            <label for="pPassword">Password : </label>
+            <input
+              type="text"
+              id="pPassword"
+              name="pPassword"
+              class="nes-input"
+              value="Password"
+            />
+          </div>
+        </div>
+        <button class="pUpdateBtn nes-btn w-50 mt-5 is-success">Update</button>
+      </div>
+    </div>
+    <div class="container main-content">
+      <div class="newTaskForm row d-none text-center">
+        <i class="closeBtn text-danger mb-2 fs-4 fw-bold">X</i>
+        <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+          <input
+            type="text"
+            class="taskName nes-input"
+            placeholder="Task name"
+          />
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <input
+            type="text"
+            class="taskDesc nes-input"
+            placeholder="Task description"
+          />
+        </div>
+        <div class="row mt-3">
+          <div class="col-6 mx-auto text-center">
+            <button class="addBtn nes-btn is-success">Add Task</button>
+            <button class="updateBtn nes-btn is-warning d-none">
+              Update Task
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row my-5">
+        <div class="col-lg-9 col-md-8 col-sm-12 nes-container with-title">
+          <h2 class="title">Tasks</h2>
+          <div class="tasksCards row"></div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 nes-container with-title">
+          <h2 class="title">Done Tasks</h2>
+          <div class="doneTasksCard row flex-column"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/sweetAlert.js"></script>
+    <script type="module" src="./js/main.js"></script>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

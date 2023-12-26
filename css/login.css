@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap");
+* {
+  font-family: "Pixelify Sans", sans-serif;
+}
+body {
+  background-image: url("../images/bg.png");
+}
+.card {
+  border: 5px solid white;
+  color: white;
+}
+.text-muted {
+  color: rgb(192, 189, 189) !important;
+}
+.is-primary {
+  cursor: url("../images/cursor-click.png"), auto !important;
+}
