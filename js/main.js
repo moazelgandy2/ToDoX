@@ -1,54 +1,25 @@
-"use strict";
-
 import { redirect, showAlret } from "./commonFunctions.js";
 
 const storedUser = JSON.parse(localStorage.getItem("user"));
-
 const users = JSON.parse(localStorage.getItem("users"));
-
-const newTaskBtn = document.querySelector(".newTask");
-
-const newTaskForm = document.querySelector(".newTaskForm");
-
-const taskName = document.querySelector(".taskName");
-
-const taskDesc = document.querySelector(".taskDesc");
-
-const addBtn = document.querySelector(".addBtn");
-
-const updateBtn = document.querySelector(".updateBtn");
-
-const closeBtn = document.querySelector(".closeBtn");
-
-const logoutBtn = document.querySelector(".logoutBtn");
-
-const title = document.querySelector(".welcom");
-
-const mainContent = document.querySelector(".main-content");
-
-const profile = document.querySelector(".profile");
-
-const profileBtn = document.querySelector(".profileBtn");
-
-const homeBtn = document.querySelector(".homeBtn");
-
-const pEmail = document.getElementById("pEmail");
-
-const pPassword = document.getElementById("pPassword");
-
 const tasksCards = document.querySelector(".tasksCards");
-
 const doneTasksCard = document.querySelector(".doneTasksCard");
-
-function logout() {
-  localStorage.removeItem("user");
-
-  redirect("login", 0);
-}
-
-logoutBtn.addEventListener("click", function () {
-  logout();
-});
+const newTaskBtn = document.querySelector(".newTask");
+const newTaskForm = document.querySelector(".newTaskForm");
+const taskName = document.querySelector(".taskName");
+const taskDesc = document.querySelector(".taskDesc");
+const addBtn = document.querySelector(".addBtn");
+const updateBtn = document.querySelector(".updateBtn");
+const closeBtn = document.querySelector(".closeBtn");
+const logoutBtn = document.querySelector(".logoutBtn");
+const title = document.querySelector(".welcom");
+const mainContent = document.querySelector(".main-content");
+const profile = document.querySelector(".profile");
+const profileBtn = document.querySelector(".profileBtn");
+const homeBtn = document.querySelector(".homeBtn");
+const pEmail = document.getElementById("pEmail");
+const pPassword = document.getElementById("pPassword");
+const pUpdateBtn = document.querySelector(".pUpdateBtn");
 
 let tasks = [];
 
@@ -59,6 +30,8 @@ let task = {
   desc: "",
   status: "",
 };
+
+// ! Set tasks in local storage if not exist or get them if exist
 
 if (localStorage.getItem("tasks")) {
   tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -83,9 +56,8 @@ if (localStorage.getItem("tasks")) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// console.log(tasks);
+// ! <------------- Check login ---------------->
 
-// ! Check if the user is logged in
 if (!storedUser) {
   showAlret("error", "You must be logged in first", true);
   redirect("login");
@@ -104,16 +76,18 @@ if (!storedUser) {
   }
 }
 
-(function profilePage() {
-  pEmail.value = storedUser.email;
-  pPassword.value = storedUser.password;
-})();
+// ! <------------ End login check ------------->
 
-const pUpdateBtn = document.querySelector(".pUpdateBtn");
+// ! <--------------- Profile -------------------->
 
 pUpdateBtn.addEventListener("click", () => {
   updateProfile();
 });
+
+(function profilePage() {
+  pEmail.value = storedUser.email;
+  pPassword.value = storedUser.password;
+})();
 
 function updateProfile() {
   let mail = pEmail.value;
@@ -133,48 +107,27 @@ function updateProfile() {
   showAlret("success", "Profile updated successfully");
 }
 
-// ! End of check
+// ! <--------------EndProfile ------------------->
 
-// ! Display user name and Tasks
+//! <--------------- Logout -------------------->
+
+function logout() {
+  localStorage.removeItem("user");
+
+  redirect("login", 0);
+}
+
+// ! <--------------EndLogout ------------------->
+
+// ! <------------- Display user Info ---------->
 
 (function displayUser() {
   title.innerHTML = `Welcome @${storedUser.name}`;
 })();
 
-displayTasks();
+// ! <------------- End user Info ---------->
 
-// ! End of display user name and Tasks
-
-// ! Add new task
-
-newTaskBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  newTaskForm.classList.replace("d-none", "d-flex");
-});
-
-addBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  createTask();
-});
-
-closeBtn.addEventListener("click", () => {
-  newTaskForm.classList.replace("d-flex", "d-none");
-  reset();
-});
-
-profileBtn.addEventListener("click", () => {
-  mainContent.classList.add("d-none");
-  profile.classList.remove("d-none");
-  profileBtn.classList.add("d-none");
-  homeBtn.classList.remove("d-none");
-});
-
-homeBtn.addEventListener("click", () => {
-  homeBtn.classList.add("d-none");
-  profileBtn.classList.remove("d-none");
-  mainContent.classList.remove("d-none");
-  profile.classList.add("d-none");
-});
+// ! <------------- Display Tasks----------->
 
 function displayTasks() {
   let taskCard = ``;
@@ -254,6 +207,10 @@ function displayTasks() {
   }
 }
 
+// ! <------------- End Display tasks ------>
+
+// ! <---------- Add new task ------------>
+
 function createTask() {
   if (taskName.value === "" || taskDesc.value === "") {
     showAlret("error", "Please fill all fields");
@@ -279,6 +236,10 @@ function createTask() {
   // console.log(tasks);
 }
 
+// ! <---------- End Add new task ------------>
+
+// ! <---------- Update task ------------>
+
 function updateTask(id) {
   let task = tasks.find((task) => task.id == id);
 
@@ -291,9 +252,23 @@ function updateTask(id) {
   newTaskForm.classList.replace("d-none", "d-flex");
 
   taskName.value = task.name;
-
+  document.querySelector(".taskId").value = task.id;
   taskDesc.value = task.desc;
 }
+
+function update() {
+  let id = document.querySelector(".taskId").value;
+  tasks[id - 1].name = taskName.value;
+  tasks[id - 1].desc = taskDesc.value;
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  showAlret("success", "Task updated successfully");
+  displayTasks();
+  reset();
+}
+
+// ! <---------- End Update task ------------>
+
+// ! <---------- Task done ------------>
 
 function taskDone(id) {
   let task = tasks.find((task) => task.id == id);
@@ -304,6 +279,56 @@ function taskDone(id) {
 
   displayTasks();
 }
+
+// ! <---------- End Task done ------------>
+
+// ! <---------- Event Listeners ------------>
+
+profileBtn.addEventListener("click", () => {
+  mainContent.classList.add("d-none");
+  profile.classList.remove("d-none");
+  profileBtn.classList.add("d-none");
+  homeBtn.classList.remove("d-none");
+});
+
+homeBtn.addEventListener("click", () => {
+  homeBtn.classList.add("d-none");
+  profileBtn.classList.remove("d-none");
+  mainContent.classList.remove("d-none");
+  profile.classList.add("d-none");
+});
+
+logoutBtn.addEventListener("click", () => {
+  logout();
+});
+
+newTaskBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  newTaskForm.classList.replace("d-none", "d-flex");
+});
+
+addBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  createTask();
+});
+
+updateBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  update();
+});
+
+closeBtn.addEventListener("click", () => {
+  newTaskForm.classList.replace("d-flex", "d-none");
+  reset();
+});
+
+// ! <---------- End Event Listeners ------------>
+
+// ! Function calls
+
+displayTasks();
+
+// ! <---------- Reset ------------>
 
 function reset() {
   newTaskForm.classList.replace("d-flex", "d-none");
@@ -317,4 +342,4 @@ function reset() {
   addBtn.classList.remove("d-none");
 }
 
-// ! End of add new task
+// ! <---------- End Reset ------------>
