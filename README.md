@@ -13,7 +13,7 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 
 ## Key Features
 
-- **User Authentication:** Secure registration and login system with automatic redirection upon successful authentication.
+- **User Authentication (Local Storage):** Secure registration and login system utilizing local storage with automatic redirection upon successful authentication.
 - **Error Handling:** Ensures authorized access; redirects unauthorized users to the login page.
 - **Task Management Dashboard:** Intuitive interface for creating, updating, and marking tasks as completed.
 - **Profile Updates:** Users can modify their email and password for improved account customization.
@@ -34,7 +34,7 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 
 1. **Access Application:** Open the application in a web browser.
 2. **Account Setup:** Register a new account or utilize the provided demo credentials.
-3. **Login:** Sign in with your registered email and password.
+3. **Login:** Sign in with your registered email and password (utilizes local storage).
 4. **Dashboard Navigation:** Explore the dashboard to manage tasks effortlessly.
 5. **Profile Management:** Update your profile information if required for customization.
 6. **Logout:** Sign out when tasks are completed or for security purposes.
