@@ -9,6 +9,8 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 - **Email:** demo@mail.com
 - **Password:** 123
 
+### [Live Demo](https://moazelgandy2.github.io/JS-To-Do-List/)
+
 ## Key Features
 
 - **User Authentication:** Secure registration and login system with automatic redirection upon successful authentication.
