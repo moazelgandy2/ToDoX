@@ -154,6 +154,7 @@ function displayTasks() {
 
   for (const task of userTasks) {
     taskCard += `<div class="col-md-12 col-lg-6 col-12 mb-3">
+                  <i class="text-danger d-block mb-3 deleteBtn" data-id="${task.id}">Remove</i>
               <div class="nes-input">
                 <h3 class="nes-text is-primary">${task.name}</h3>
                 <p class="nes-text is-warning">${task.desc}</p>
@@ -171,6 +172,7 @@ function displayTasks() {
 
   for (const task of userDoneTasks) {
     doneTaskCard += `<div class="col-12">
+              <i class="text-danger d-block mb-3 deleteBtn" data-id="${task.id}">Remove</i>
               <div class="nes-input mb-4">
                 <h3 class="nes-text is-primary">${task.name}</h3>
                 <p class="nes-text is-warning">${task.desc}</p>
@@ -189,6 +191,8 @@ function displayTasks() {
 
     const editBtn = document.querySelectorAll(".editBtn");
 
+    const deleteBtn = document.querySelectorAll(".deleteBtn");
+
     doneBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -202,6 +206,14 @@ function displayTasks() {
         e.stopPropagation();
         let id = e.target.dataset.id;
         updateTask(id);
+      });
+    });
+
+    deleteBtn.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        let id = e.target.dataset.id;
+        deleteTask(id);
       });
     });
   }
@@ -266,7 +278,23 @@ function update() {
   reset();
 }
 
-// ! <---------- End Update task ------------>
+// ! <---------- End Update task ------>
+
+// ! <---------- Delete Task ---------->
+
+function deleteTask(id) {
+  let index = tasks.find((task) => task.id == id);
+
+  index = tasks.indexOf(index);
+
+  console.log(tasks.splice(index, 1));
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  displayTasks();
+}
+
+// ! <---------- End Delete Task ------>
 
 // ! <---------- Task done ------------>
 

@@ -43,6 +43,9 @@ button {
   width: 200px;
   height: 200px;
 }
+.deleteBtn {
+  cursor: url("../images/cursor-click.png"), auto !important;
+}
 
 @media screen and (max-width: 768px) {
   .avatar {
