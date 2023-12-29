@@ -122,7 +122,7 @@ function logout() {
 // ! <------------- Display user Info ---------->
 
 (function displayUser() {
-  title.innerHTML = `Welcome @${storedUser.email}`;
+  title.innerHTML = `Welcome ${storedUser.email}`;
 })();
 
 // ! <------------- End user Info ---------->
