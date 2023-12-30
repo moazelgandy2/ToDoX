@@ -44,7 +44,7 @@ ToDoX is a user-friendly to-do list application leveraging JavaScript local stor
 1. **Clone Repository:** Clone the project repository from [GitHub](https://github.com/moazelgandy2/ToDoX) using the command:
 
    ```bash
-   git clone https://github.com/moazelgandy2/JS-To-Do-List.git
+   git clone https://github.com/moazelgandy2/ToDoX.git
    ```
 
 2. **Open in Code Editor:** Access the project using your preferred code editor.
